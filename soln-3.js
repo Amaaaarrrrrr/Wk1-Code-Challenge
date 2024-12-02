@@ -1,10 +1,11 @@
 function netSalaryCalculator() {
    
-    const basicSalary = parseFloat(prompt("Enter your basic salary:"));
-    const benefits = parseFloat(prompt("Enter your benefits:"));
+    const basicSalary = parseFloat(prompt("Enter your basic salary:")); //prompts user to enter their basic salary
+    const benefits = parseFloat(prompt("Enter your benefits:")); //prompts user to enter their benefits
 
     // validate input
-    if (isNaN(basicSalary) || isNaN(benefits)) {
+    if (isNaN(basicSalary) || isNaN(benefits)) //ensures the value for both basicSalary and benefits is a number
+        {
         console.log("Invalid input. Please enter numeric values.");
         return;
     }
