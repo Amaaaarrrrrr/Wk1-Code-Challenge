@@ -3,6 +3,8 @@ function netSalaryCalculator() {
     const basicSalary = parseFloat(prompt("Enter your basic salary:")); //prompts user to enter their basic salary
     const benefits = parseFloat(prompt("Enter your benefits:")); //prompts user to enter their benefits
 
+
+
     // validate input
     if (isNaN(basicSalary) || isNaN(benefits)) //ensures the value for both basicSalary and benefits is a number
         {
@@ -10,8 +12,12 @@ function netSalaryCalculator() {
         return;
     }
 
+
+
     // Calculate Gross Salary
     const grossSalary = basicSalary + benefits;
+
+
 
     // Calculate PAYE (Tax)
     let tax = 0;
@@ -23,7 +29,7 @@ function netSalaryCalculator() {
         tax = grossSalary * 0.3;
     }
 
-    // Calculate NHIF deduction
+    //nhifRates
     const nhifRates = [
         { min: 0, max: 5999, deduction: 150 },
         { min: 6000, max: 7999, deduction: 300 },
@@ -35,7 +41,11 @@ function netSalaryCalculator() {
         { min: 30000, max: 34999, deduction: 900 },
         { min: 35000, max: 39999, deduction: 950 },
         { min: 40000, max: Infinity, deduction: 1000 }
-    ];
+    ]; //this ensures that the nhifRates are not changed for easy calculation
+
+
+
+    // Calculate NHIF deduction
     const nhifDeduction = nhifRates.find(rate => grossSalary >= rate.min && grossSalary <= rate.max).deduction;
 
     // Calculate NSSF deduction
@@ -44,12 +54,18 @@ function netSalaryCalculator() {
     // Calculate Net Salary
     const netSalary = grossSalary - tax - nhifDeduction - nssfDeduction;
 
+
+
     // Output results
-    console.log(`Gross Salary: ${grossSalary.toFixed(2)}`);
-    console.log(`Tax (PAYE): ${tax.toFixed(2)}`);
-    console.log(`NHIF Deduction: ${nhifDeduction.toFixed(2)}`);
-    console.log(`NSSF Deduction: ${nssfDeduction.toFixed(2)}`);
-    console.log(`Net Salary: ${netSalary.toFixed(2)}`);
+    console.log(`Gross Salary: ${grossSalary.toFixed(2)}`); //output for gross salary
+
+    console.log(`Tax (PAYE): ${tax.toFixed(2)}`); //output for tax PAYE
+
+    console.log(`NHIF Deduction: ${nhifDeduction.toFixed(2)}`); //output for NHIF deduction
+
+    console.log(`NSSF Deduction: ${nssfDeduction.toFixed(2)}`); //output for NSSF deduction
+
+    console.log(`Net Salary: ${netSalary.toFixed(2)}`); //Output for Net Salary
 }
 
 
