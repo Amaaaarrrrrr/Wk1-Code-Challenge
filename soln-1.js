@@ -1,34 +1,42 @@
-studentGrades();
+function studentGrades() {
+    // Prompt the user to enter student marks and store it in the variable 'input'
+    const input = prompt('Enter student marks (0-100):'); 
 
-function studentGrades(){
-    const input = prompt('enter Student marks (0-100):') //prompts the user to enter number 
-    const marks = Number(input); //ensures the marks entered is a number
+    // Convert the user input to a number and store it in the variable 'marks'
+    const marks = Number(input); 
 
-
-
-// validate marks
-    if (isNaN(marks) || marks < 0 || marks > 100)   //ensures marks entered should not be more than 100 or less than 0
-        {
+    // Validate the marks entered by the user
+    // Check if 'marks' is not a number (NaN) or if it is outside the valid range (0-100)
+    if (isNaN(marks) || marks < 0 || marks > 100) {
+        // Display an error message if the input is invalid
         console.log("Invalid input. Please enter a number between 0 and 100.");
-        return;
+        return; // Exit the function to prevent further execution
     }
 
-
-// determine grades
+    // Initialize a variable to store the grade
     let grade;
-    if(marks>=79){
-        grade= 'A';
-    }else if (marks>=60){
-       grade= 'B';
-    }else if (marks>=50){
-        grade=  'C';
-    }else if (marks>=40){
-        grade= 'D';
-    }else {
-        grade=  'E';
+
+    // Determine the grade based on the value of 'marks' using conditional statements
+    if (marks >= 79) {
+        // Assign 'A' if marks are 79 or higher
+        grade = 'A';
+    } else if (marks >= 60) {
+        // Assign 'B' if marks are between 60 and 78
+        grade = 'B';
+    } else if (marks >= 50) {
+        // Assign 'C' if marks are between 50 and 59
+        grade = 'C';
+    } else if (marks >= 40) {
+        // Assign 'D' if marks are between 40 and 49
+        grade = 'D';
+    } else {
+        // Assign 'E' if marks are below 40
+        grade = 'E';
     }
 
-    
-// output
-console.log("Marks: " + marks + ", Grade: " + grade);
+    // Display the marks and the corresponding grade in the console
+    console.log(`Marks: ${marks}, Grade: ${grade}`);
 }
+
+// Call the function to execute the program
+studentGrades();
