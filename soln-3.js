@@ -42,7 +42,6 @@ function calculateNetSalary() {
 
     // Output the results to the console
     console.log(`
-        === Salary Breakdown ===
         Gross Salary: KES ${grossSalary.toFixed(2)}
         PAYE Deduction: KES ${paye.toFixed(2)}
         NHIF Deduction: KES ${nhif.toFixed(2)}
